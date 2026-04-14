@@ -71,39 +71,6 @@
 - 基于使用频率的智能排序
 - 缓存超时机制
 
-## 开发指南
-
-### 安装依赖
-
-```bash
-npm install
-```
-
-### 编译扩展
-
-```bash
-npm run compile
-```
-
-### 运行测试
-
-```bash
-npm test
-```
-
-### 打包扩展
-
-```bash
-npm run vscode:prepublish
-```
-
-## 发布到 VSCode Marketplace
-
-1. 确保扩展已编译：`npm run vscode:prepublish`
-2. 安装 VSCE 工具：`npm install -g vsce`
-3. 创建发布包：`vsce package`
-4. 发布到 Marketplace：`vsce publish`
-
 ## 许可证
 
 本插件采用 MIT 许可证。
