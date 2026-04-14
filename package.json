@@ -3,7 +3,7 @@
   "displayName": "Command Autocomplete",
   "description": "智能命令补全插件，支持 Bash、ShellScript、Batch 和 CMD 文件的命令、参数、文件路径和环境变量补全",
   "version": "0.0.1",
-  "publisher": "your-publisher-name",
+  "publisher": "likewater123",
   "engines": {
     "vscode": "^1.90.0"
   },
