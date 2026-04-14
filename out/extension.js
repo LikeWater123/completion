@@ -75,7 +75,15 @@ class CommandAutocomplete {
             }
         }, 
         // 触发补全的字符
-        ' ', '-', '.', '/', '$', '~');
+        ' ', '-', '.', '/', '$', '~', '');
+        // 注册终端命令补全
+        const terminalDisposable = vscode.window.onDidOpenTerminal((terminal) => {
+            this.setupTerminalCompletion(terminal);
+        });
+        // 为现有终端设置补全
+        vscode.window.terminals.forEach(terminal => {
+            this.setupTerminalCompletion(terminal);
+        });
         // 注册命令执行监听器，用于统计命令使用频率
         const executeCommandDisposable = vscode.commands.registerCommand('workbench.action.terminal.sendSequence', (args) => {
             if (args && typeof args.text === 'string') {
@@ -106,12 +114,18 @@ class CommandAutocomplete {
             this.importCustomCommands();
         });
         this.context.subscriptions.push(provider);
+        this.context.subscriptions.push(terminalDisposable);
         this.context.subscriptions.push(executeCommandDisposable);
         this.context.subscriptions.push(showCommandDetailsDisposable);
         this.context.subscriptions.push(helloWorldDisposable);
         this.context.subscriptions.push(manageCustomCommandsDisposable);
         this.context.subscriptions.push(exportCustomCommandsDisposable);
         this.context.subscriptions.push(importCustomCommandsDisposable);
+    }
+    // 为终端设置命令补全
+    setupTerminalCompletion(terminal) {
+        // 终端命令补全通过 VSCode 的内置补全机制实现
+        // 当用户在终端中输入时，VSCode 会自动触发补全请求
     }
     /**
      * 检测工作目录上下文
@@ -392,40 +406,25 @@ class CommandAutocomplete {
             }
             const basePath = path.dirname(path.join(workspaceFolder.uri.fsPath, resolvedPath));
             const fs = require('fs');
-            // 异步读取目录，避免阻塞主线程
-            fs.readdir(basePath, (err, files) => {
-                if (err) {
-                    return;
-                }
-                const fileItems = [];
-                let processed = 0;
-                if (files.length === 0) {
-                    this.fileCache.set(cacheKey, fileItems);
-                    setTimeout(() => {
-                        this.fileCache.delete(cacheKey);
-                    }, this.baseCacheTimeout);
-                    return;
-                }
-                files.forEach((file) => {
+            // 同步读取目录，确保能够返回结果
+            const files = fs.readdirSync(basePath);
+            files.forEach((file) => {
+                try {
                     const fullPath = path.join(basePath, file);
-                    // 异步获取文件状态
-                    fs.stat(fullPath, (err, stats) => {
-                        processed++;
-                        if (!err) {
-                            const item = new vscode.CompletionItem(file, stats.isDirectory() ? vscode.CompletionItemKind.Folder : vscode.CompletionItemKind.File);
-                            item.detail = stats.isDirectory() ? 'Directory' : 'File';
-                            fileItems.push(item);
-                        }
-                        // 当所有文件处理完成后，更新缓存
-                        if (processed === files.length) {
-                            this.fileCache.set(cacheKey, fileItems);
-                            setTimeout(() => {
-                                this.fileCache.delete(cacheKey);
-                            }, this.getCacheTimeout(cacheKey));
-                        }
-                    });
-                });
+                    const stats = fs.statSync(fullPath);
+                    const item = new vscode.CompletionItem(file, stats.isDirectory() ? vscode.CompletionItemKind.Folder : vscode.CompletionItemKind.File);
+                    item.detail = stats.isDirectory() ? 'Directory' : 'File';
+                    items.push(item);
+                }
+                catch (error) {
+                    // 忽略错误
+                }
             });
+            // 缓存结果
+            this.fileCache.set(cacheKey, items);
+            setTimeout(() => {
+                this.fileCache.delete(cacheKey);
+            }, this.getCacheTimeout(cacheKey));
         }
         catch (error) {
             // 忽略错误

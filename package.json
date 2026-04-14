@@ -29,7 +29,12 @@
     "onLanguage:shellscript",
     "onLanguage:bash",
     "onLanguage:batch",
-    "onLanguage:cmd"
+    "onLanguage:cmd",
+    "onTerminalCreated",
+    "onCommand:command-autocomplete.helloWorld",
+    "onCommand:command-autocomplete.manageCustomCommands",
+    "onCommand:command-autocomplete.exportCustomCommands",
+    "onCommand:command-autocomplete.importCustomCommands"
   ],
   "main": "out/extension.js",
   "contributes": {
