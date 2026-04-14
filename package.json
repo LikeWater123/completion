@@ -1,0 +1,92 @@
+{
+  "name": "vscode-command-autocomplete",
+  "displayName": "Command Autocomplete",
+  "description": "智能命令补全插件，支持 Bash、ShellScript、Batch 和 CMD 文件的命令、参数、文件路径和环境变量补全",
+  "version": "0.0.1",
+  "publisher": "your-publisher-name",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other",
+    "Programming Languages",
+    "Snippets"
+  ],
+  "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/vscode-command-autocomplete.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/vscode-command-autocomplete/issues"
+  },
+  "homepage": "https://github.com/your-username/vscode-command-autocomplete#readme",
+  "author": {
+    "name": "Your Name",
+    "email": "your-email@example.com"
+  },
+  "activationEvents": [
+    "onLanguage:shellscript",
+    "onLanguage:bash",
+    "onLanguage:batch",
+    "onLanguage:cmd"
+  ],
+  "main": "out/extension.js",
+  "contributes": {
+        "commands": [
+            {
+                "command": "command-autocomplete.helloWorld",
+                "title": "Hello World"
+            },
+            {
+                "command": "command-autocomplete.manageCustomCommands",
+                "title": "Manage Custom Commands"
+            },
+            {
+                "command": "command-autocomplete.exportCustomCommands",
+                "title": "Export Custom Commands"
+            },
+            {
+                "command": "command-autocomplete.importCustomCommands",
+                "title": "Import Custom Commands"
+            }
+        ],
+        "menus": {
+            "commandPalette": [
+                {
+                    "command": "command-autocomplete.manageCustomCommands",
+                    "when": "editorLangId == shellscript || editorLangId == bash || editorLangId == batch || editorLangId == cmd"
+                },
+                {
+                    "command": "command-autocomplete.exportCustomCommands",
+                    "when": "editorLangId == shellscript || editorLangId == bash || editorLangId == batch || editorLangId == cmd"
+                },
+                {
+                    "command": "command-autocomplete.importCustomCommands",
+                    "when": "editorLangId == shellscript || editorLangId == bash || editorLangId == batch || editorLangId == cmd"
+                }
+            ]
+        }
+    },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.90.0",
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "18.x",
+    "@typescript-eslint/eslint-plugin": "^6.4.0",
+    "@typescript-eslint/parser": "^6.4.0",
+    "eslint": "^8.47.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.2.0",
+    "typescript": "^5.1.6",
+    "@vscode/test-electron": "^2.3.4"
+  }
+}
