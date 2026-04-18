@@ -1,0 +1,59 @@
+<view class="plan-container">
+  <view class="header">
+    <text class="title">AI学习方案</text>
+    <text class="subtitle">基于你的做题数据生成个性化学习方案</text>
+  </view>
+  
+  <!-- 生成方案按钮 -->
+  <view class="generate-section" wx:if="{{!learningPlan}}">
+    <button class="generate-btn" bindtap="generatePlan">
+      <text class="generate-icon">🤖</text>
+      <text>生成学习方案</text>
+    </button>
+    <text class="hint">点击按钮，AI将根据你的做题数据生成个性化学习方案</text>
+  </view>
+  
+  <!-- 加载动画 -->
+  <view class="loading" wx:if="{{loading}}">
+    <text>AI正在分析你的学习数据...</text>
+  </view>
+  
+  <!-- 学习方案内容 -->
+  <view class="plan-content" wx:if="{{learningPlan}}">
+    <!-- 学习状况评估 -->
+    <view class="assessment-card">
+      <text class="card-title">学习状况评估</text>
+      <text class="assessment-text">{{learningPlan.assessment}}</text>
+    </view>
+    
+    <!-- 薄弱知识点 -->
+    <view class="weak-points-card">
+      <text class="card-title">薄弱知识点</text>
+      <view class="weak-points-tags">
+        <text wx:for="{{learningPlan.weakPoints}}" wx:key="index" class="tag tag-orange">{{item}}</text>
+      </view>
+    </view>
+    
+    <!-- 学习建议 -->
+    <view class="suggestions-card">
+      <text class="card-title">个性化学习建议</text>
+      <view class="suggestions-list">
+        <view wx:for="{{learningPlan.suggestions}}" wx:key="index" class="suggestion-item">
+          <text class="suggestion-icon">💡</text>
+          <text class="suggestion-text">{{item}}</text>
+        </view>
+      </view>
+    </view>
+    
+    <!-- AI鼓励语 -->
+    <view class="encouragement-card">
+      <text class="card-title">AI鼓励语</text>
+      <text class="encouragement-text">{{learningPlan.encouragement}}</text>
+    </view>
+    
+    <!-- 重新生成按钮 -->
+    <button class="regenerate-btn" bindtap="generatePlan">
+      重新生成方案
+    </button>
+  </view>
+</view>

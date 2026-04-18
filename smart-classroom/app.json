@@ -1,0 +1,68 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/teacher/home/home",
+    "pages/teacher/create/create",
+    "pages/teacher/dashboard/dashboard",
+    "pages/student/home/home",
+    "pages/student/quiz/quiz",
+    "pages/student/plan/plan",
+    "pages/student/reminder/reminder"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#1976D2",
+    "navigationBarTitleText": "智慧学堂",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#1976D2",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/teacher/home/home",
+        "text": "作业管理",
+        "iconPath": "",
+        "selectedIconPath": ""
+      },
+      {
+        "pagePath": "pages/teacher/dashboard/dashboard",
+        "text": "数据看板",
+        "iconPath": "",
+        "selectedIconPath": ""
+      },
+      {
+        "pagePath": "pages/student/home/home",
+        "text": "作业",
+        "iconPath": "",
+        "selectedIconPath": ""
+      },
+      {
+        "pagePath": "pages/student/plan/plan",
+        "text": "学习方案",
+        "iconPath": "",
+        "selectedIconPath": ""
+      },
+      {
+        "pagePath": "pages/student/reminder/reminder",
+        "text": "学习提醒",
+        "iconPath": "",
+        "selectedIconPath": ""
+      }
+    ]
+  },
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-picker": "@vant/weapp/picker/index",
+    "van-card": "@vant/weapp/card/index",
+    "van-list": "@vant/weapp/list/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-toast": "@vant/weapp/toast/index",
+    "van-loading": "@vant/weapp/loading/index"
+  },
+  "sitemapLocation": "sitemap.json"
+}

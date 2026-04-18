@@ -1,0 +1,67 @@
+<view class="create-container">
+  <view class="form">
+    <!-- 作业标题 -->
+    <view class="form-item">
+      <text class="label">作业标题</text>
+      <input class="input" placeholder="请输入作业标题" value="{{assignment.title}}" bindinput="onTitleChange" />
+    </view>
+    
+    <!-- 学科选择 -->
+    <view class="form-item">
+      <text class="label">学科</text>
+      <picker class="picker" range="{{subjects}}" value="{{subjectIndex}}" bindchange="onSubjectChange">
+        <view class="picker-value">{{subjects[subjectIndex]}}</view>
+      </picker>
+    </view>
+    
+    <!-- 题目列表 -->
+    <view class="form-item">
+      <view class="label-row">
+        <text class="label">题目列表</text>
+        <text class="count">{{questions.length}}道题</text>
+      </view>
+      
+      <view class="questions-list">
+        <view wx:for="{{questions}}" wx:key="index" class="question-item">
+          <view class="question-header">
+            <text class="question-number">第{{index + 1}}题</text>
+            <text class="delete-btn" bindtap="deleteQuestion" data-index="{{index}}">删除</text>
+          </view>
+          
+          <!-- 题目文本 -->
+          <view class="question-content">
+            <text class="content-label">题目：</text>
+            <input class="question-input" placeholder="请输入题目" value="{{item.question}}" bindinput="onQuestionChange" data-index="{{index}}" />
+          </view>
+          
+          <!-- 选项 -->
+          <view class="options">
+            <view wx:for="{{['A', 'B', 'C', 'D']}}" wx:key="this" class="option-item">
+              <text class="option-label">{{this}}：</text>
+              <input class="option-input" placeholder="请输入选项" value="{{item.options[index]}}" bindinput="onOptionChange" data-qindex="{{index}}" data-oindex="{{['A', 'B', 'C', 'D'].indexOf(this)}}" />
+            </view>
+          </view>
+          
+          <!-- 正确答案 -->
+          <view class="correct-answer">
+            <text class="content-label">正确答案：</text>
+            <picker class="answer-picker" range="{{['A', 'B', 'C', 'D']}}" value="{{item.correctAnswer}}" bindchange="onCorrectAnswerChange" data-index="{{index}}">
+              <view class="picker-value">{{['A', 'B', 'C', 'D'][item.correctAnswer]}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+      
+      <!-- 添加题目按钮 -->
+      <button class="add-question-btn" bindtap="addQuestion">
+        <text class="add-icon">+</text>
+        <text>添加题目</text>
+      </button>
+    </view>
+    
+    <!-- 发布按钮 -->
+    <button class="publish-btn" bindtap="publishAssignment" disabled="{{!assignment.title || questions.length === 0}}">
+      {{isEdit ? '更新作业' : '发布作业'}}
+    </button>
+  </view>
+</view>

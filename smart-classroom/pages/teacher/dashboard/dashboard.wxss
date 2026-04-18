@@ -1,0 +1,147 @@
+.dashboard-container {
+  padding: 20px;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333333;
+}
+
+.score-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #666666;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.average-score {
+  font-size: 48px;
+  font-weight: 700;
+  color: #1976D2;
+}
+
+.ranking-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ranking-list {
+  margin-top: 16px;
+}
+
+.ranking-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #E0E0E0;
+}
+
+.ranking-item:last-child {
+  border-bottom: none;
+}
+
+.rank {
+  width: 30px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333333;
+  margin-right: 16px;
+}
+
+.student-name {
+  flex: 1;
+  font-size: 14px;
+  color: #333333;
+}
+
+.student-score {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1976D2;
+}
+
+.weak-points-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chart-container {
+  height: 300px;
+  margin-top: 16px;
+}
+
+.recent-submissions-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.submission-list {
+  margin-top: 16px;
+}
+
+.submission-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #E0E0E0;
+}
+
+.submission-item:last-child {
+  border-bottom: none;
+}
+
+.submission-info {
+  flex: 1;
+}
+
+.assignment-title {
+  display: block;
+  font-size: 12px;
+  color: #666666;
+  margin-top: 4px;
+}
+
+.submission-details {
+  text-align: right;
+}
+
+.score {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1976D2;
+  margin-bottom: 4px;
+}
+
+.time {
+  display: block;
+  font-size: 12px;
+  color: #999999;
+}

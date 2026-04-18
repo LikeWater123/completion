@@ -1,0 +1,68 @@
+<view class="reminder-container">
+  <view class="header">
+    <text class="title">学习提醒</text>
+    <text class="subtitle">设置学习提醒，AI为你生成个性化鼓励语</text>
+  </view>
+  
+  <!-- 提醒设置 -->
+  <view class="setting-card">
+    <text class="card-title">设置新提醒</text>
+    
+    <!-- 时间选择 -->
+    <view class="form-item">
+      <text class="label">提醒时间</text>
+      <picker mode="time" bindchange="onTimeChange">
+        <view class="picker-value">{{selectedTime}}</view>
+      </picker>
+    </view>
+    
+    <!-- 频率选择 -->
+    <view class="form-item">
+      <text class="label">提醒频率</text>
+      <picker range="{{frequencies}}" bindchange="onFrequencyChange">
+        <view class="picker-value">{{frequencies[frequencyIndex]}}</view>
+      </picker>
+    </view>
+    
+    <!-- 提醒消息 -->
+    <view class="form-item">
+      <text class="label">提醒消息</text>
+      <input class="input" placeholder="输入提醒消息" value="{{reminderMessage}}" bindinput="onMessageChange" />
+    </view>
+    
+    <!-- 生成AI鼓励语 -->
+    <button class="ai-btn" bindtap="generateEncouragement">
+      <text class="ai-icon">🤖</text>
+      <text>生成AI鼓励语</text>
+    </button>
+    
+    <!-- 保存提醒 -->
+    <button class="save-btn" bindtap="saveReminder">
+      保存提醒
+    </button>
+  </view>
+  
+  <!-- 已设置提醒 -->
+  <view class="reminders-card">
+    <text class="card-title">已设置的提醒</text>
+    
+    <view wx:if="{{reminders.length === 0}}" class="empty-state">
+      <text>暂无设置的提醒</text>
+    </view>
+    
+    <view wx:else class="reminders-list">
+      <view wx:for="{{reminders}}" wx:key="_id" class="reminder-item">
+        <view class="reminder-info">
+          <text class="reminder-time">{{item.time}}</text>
+          <text class="reminder-frequency">{{item.frequency}}</text>
+        </view>
+        <text class="reminder-message">{{item.message}}</text>
+        <text wx:if="{{item.aiMessage}}" class="ai-message">{{item.aiMessage}}</text>
+        <view class="reminder-actions">
+          <text class="edit-btn" bindtap="editReminder" data-index="{{index}}">编辑</text>
+          <text class="delete-btn" bindtap="deleteReminder" data-index="{{index}}">删除</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

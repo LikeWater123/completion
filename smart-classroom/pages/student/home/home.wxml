@@ -1,0 +1,62 @@
+<view class="home-container">
+  <view class="header">
+    <text class="welcome">欢迎，{{userInfo?.nickName}}</text>
+    <text class="subtitle">作业列表</text>
+  </view>
+  
+  <!-- 待做作业 -->
+  <view class="section">
+    <view class="section-title">
+      <text>待做作业</text>
+      <text class="count">{{pendingAssignments.length}}个</text>
+    </view>
+    
+    <view wx:if="{{pendingAssignments.length === 0}}" class="empty-state">
+      <text>暂无待做作业</text>
+    </view>
+    
+    <view wx:else class="assignment-cards">
+      <view wx:for="{{pendingAssignments}}" wx:key="_id" class="assignment-card pending">
+        <view class="card-header">
+          <text class="assignment-title">{{item.title}}</text>
+          <text class="assignment-subject">{{item.subject}}</text>
+        </view>
+        <view class="card-body">
+          <text class="assignment-info">题目数量：{{item.questions.length}}道</text>
+          <text class="assignment-date">发布时间：{{formatDate(item.createdAt)}}</text>
+        </view>
+        <view class="card-footer">
+          <button class="start-btn" bindtap="startQuiz" data-id="{{item._id}}">开始做题</button>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 已做作业 -->
+  <view class="section">
+    <view class="section-title">
+      <text>已做作业</text>
+      <text class="count">{{completedAssignments.length}}个</text>
+    </view>
+    
+    <view wx:if="{{completedAssignments.length === 0}}" class="empty-state">
+      <text>暂无已做作业</text>
+    </view>
+    
+    <view wx:else class="assignment-cards">
+      <view wx:for="{{completedAssignments}}" wx:key="_id" class="assignment-card completed">
+        <view class="card-header">
+          <text class="assignment-title">{{item.title}}</text>
+          <text class="assignment-subject">{{item.subject}}</text>
+        </view>
+        <view class="card-body">
+          <text class="assignment-info">题目数量：{{item.questions.length}}道</text>
+          <text class="assignment-score">得分：{{item.score}}分</text>
+        </view>
+        <view class="card-footer">
+          <text class="view-btn" bindtap="viewResult" data-id="{{item._id}}">查看结果</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

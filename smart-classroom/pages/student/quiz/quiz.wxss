@@ -1,0 +1,258 @@
+.quiz-container {
+  padding: 20px;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.question-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #E0E0E0;
+}
+
+.current-question {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333333;
+}
+
+.timer {
+  font-size: 16px;
+  color: #1976D2;
+  font-weight: 500;
+}
+
+.question-content {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.question-text {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333333;
+  margin-bottom: 20px;
+}
+
+.options {
+  margin-bottom: 30px;
+}
+
+.option-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 12px;
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.option-item.selected {
+  border-color: #1976D2;
+  background-color: #E3F2FD;
+}
+
+.option-label {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #F5F5F5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #666666;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.option-item.selected .option-label {
+  background-color: #1976D2;
+  color: white;
+}
+
+.option-text {
+  flex: 1;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #333333;
+}
+
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-btn {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #1976D2;
+  border-radius: 8px;
+  background-color: white;
+  color: #1976D2;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 6px;
+}
+
+.nav-btn:disabled {
+  border-color: #E0E0E0;
+  color: #999999;
+}
+
+.submit-btn {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #1976D2;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 6px;
+}
+
+.result-container {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.score-card {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: #F5F5F5;
+  border-radius: 8px;
+}
+
+.score-title {
+  display: block;
+  font-size: 16px;
+  color: #666666;
+  margin-bottom: 8px;
+}
+
+.score-value {
+  font-size: 48px;
+  font-weight: 700;
+  color: #1976D2;
+  margin-right: 8px;
+}
+
+.score-max {
+  font-size: 24px;
+  color: #666666;
+}
+
+.result-details {
+  margin-bottom: 30px;
+}
+
+.result-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.result-item {
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #E0E0E0;
+}
+
+.result-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.result-question {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333333;
+}
+
+.result-status {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 12px;
+}
+
+.result-status.correct {
+  background-color: #E8F5E9;
+  color: #4CAF50;
+}
+
+.result-status.wrong {
+  background-color: #FFEBEE;
+  color: #F44336;
+}
+
+.result-text {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333333;
+  margin-bottom: 12px;
+}
+
+.result-options {
+  margin-top: 12px;
+}
+
+.result-option {
+  display: flex;
+  align-items: flex-start;
+  padding: 8px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.result-option.correct {
+  background-color: #E8F5E9;
+  color: #4CAF50;
+}
+
+.result-option.wrong {
+  background-color: #FFEBEE;
+  color: #F44336;
+}
+
+.option-status {
+  margin-left: auto;
+  font-size: 12px;
+  color: inherit;
+}
+
+.back-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #1976D2;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 20px;
+}
