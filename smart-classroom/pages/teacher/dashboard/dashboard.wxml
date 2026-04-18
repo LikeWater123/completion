@@ -1,0 +1,48 @@
+<view class="dashboard-container">
+  <view class="header">
+    <text class="title">班级数据看板</text>
+  </view>
+  
+  <!-- 班级平均分 -->
+  <view class="score-card">
+    <text class="card-title">班级平均分</text>
+    <text class="average-score">{{averageScore}}</text>
+  </view>
+  
+  <!-- 学生成绩排名 -->
+  <view class="ranking-card">
+    <text class="card-title">学生成绩排名</text>
+    <view class="ranking-list">
+      <view wx:for="{{rankings}}" wx:key="index" class="ranking-item">
+        <text class="rank">{{index + 1}}</text>
+        <text class="student-name">{{item.name}}</text>
+        <text class="student-score">{{item.score}}</text>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 薄弱知识点 -->
+  <view class="weak-points-card">
+    <text class="card-title">薄弱知识点 TOP5</text>
+    <view class="chart-container">
+      <canvas canvas-id="weakPointsChart"></canvas>
+    </view>
+  </view>
+  
+  <!-- 最近提交记录 -->
+  <view class="recent-submissions-card">
+    <text class="card-title">最近提交记录</text>
+    <view class="submission-list">
+      <view wx:for="{{recentSubmissions}}" wx:key="_id" class="submission-item">
+        <view class="submission-info">
+          <text class="student-name">{{item.studentName}}</text>
+          <text class="assignment-title">{{item.assignmentTitle}}</text>
+        </view>
+        <view class="submission-details">
+          <text class="score">{{item.score}}分</text>
+          <text class="time">{{formatDate(item.createdAt)}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

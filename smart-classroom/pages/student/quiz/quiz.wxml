@@ -1,0 +1,62 @@
+<view class="quiz-container">
+  <!-- 题目导航 -->
+  <view class="question-nav">
+    <text class="current-question">第{{currentIndex + 1}}题 / 共{{questions.length}}题</text>
+    <text class="timer" wx:if="{{!submitted}}">{{formatTime(duration)}}</text>
+  </view>
+  
+  <!-- 题目内容 -->
+  <view class="question-content" wx:if="{{!submitted}}">
+    <text class="question-text">{{questions[currentIndex].question}}</text>
+    
+    <!-- 选项 -->
+    <view class="options">
+      <view wx:for="{{questions[currentIndex].options}}" wx:key="index" 
+            class="option-item {{selected === index ? 'selected' : ''}}" 
+            bindtap="onSelect" data-index="{{index}}">
+        <text class="option-label">{{['A', 'B', 'C', 'D'][index]}}</text>
+        <text class="option-text">{{item}}</text>
+      </view>
+    </view>
+    
+    <!-- 导航按钮 -->
+    <view class="nav-buttons">
+      <button class="nav-btn" bindtap="onPrev" disabled="{{currentIndex === 0}}">上一题</button>
+      <button class="nav-btn" bindtap="onNext" wx:if="{{currentIndex < questions.length - 1}}">下一题</button>
+      <button class="submit-btn" bindtap="onSubmit" wx:else>提交作业</button>
+    </view>
+  </view>
+  
+  <!-- 提交结果 -->
+  <view class="result-container" wx:if="{{submitted}}">
+    <view class="score-card">
+      <text class="score-title">你的得分</text>
+      <text class="score-value">{{score}}</text>
+      <text class="score-max">/{{questions.length * 10}}分</text>
+    </view>
+    
+    <view class="result-details">
+      <text class="result-title">答题详情</text>
+      <view wx:for="{{questions}}" wx:key="index" class="result-item">
+        <view class="result-header">
+          <text class="result-question">第{{index + 1}}题</text>
+          <text class="result-status {{answers[index] === item.correctAnswer ? 'correct' : 'wrong'}}">
+            {{answers[index] === item.correctAnswer ? '正确' : '错误'}}
+          </text>
+        </view>
+        <text class="result-text">{{item.question}}</text>
+        <view class="result-options">
+          <view wx:for="{{item.options}}" wx:key="optionIndex" 
+                class="result-option {{optionIndex === item.correctAnswer ? 'correct' : (optionIndex === answers[index] ? 'wrong' : '')}}">
+            <text class="option-label">{{['A', 'B', 'C', 'D'][optionIndex]}}</text>
+            <text class="option-text">{{item}}</text>
+            <text class="option-status" wx:if="optionIndex === item.correctAnswer">✓ 正确答案</text>
+            <text class="option-status" wx:elif="optionIndex === answers[index]">✗ 你的答案</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <button class="back-btn" bindtap="navigateBack">返回作业列表</button>
+  </view>
+</view>

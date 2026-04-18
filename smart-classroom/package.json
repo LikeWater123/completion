@@ -1,0 +1,20 @@
+{
+  "name": "smart-classroom",
+  "version": "1.0.0",
+  "description": "智慧学堂微信小程序",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "wechat",
+    "miniprogram",
+    "education"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vant/weapp": "^1.10.0",
+    "echarts-for-weixin": "^1.0.2"
+  }
+}

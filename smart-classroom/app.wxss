@@ -1,0 +1,165 @@
+/* 全局样式 */
+page {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #333333;
+}
+
+/* 主色调 */
+.primary-color {
+  color: #1976D2;
+}
+
+.primary-bg {
+  background-color: #1976D2;
+}
+
+/* 辅助色 */
+.secondary-color {
+  color: #FF9800;
+}
+
+.light-blue {
+  color: #BBDEFB;
+}
+
+/* 按钮样式 */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #1976D2;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #1565C0;
+}
+
+.btn-secondary {
+  background-color: #FF9800;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #F57C00;
+}
+
+/* 卡片样式 */
+.card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+/* 标题样式 */
+h1 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #333333;
+}
+
+h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #333333;
+}
+
+h3 {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #333333;
+}
+
+/* 输入框样式 */
+.input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #E0E0E0;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #1976D2;
+  box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2);
+}
+
+/* 列表样式 */
+.list-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #E0E0E0;
+}
+
+.list-item:last-child {
+  border-bottom: none;
+}
+
+/* 标签样式 */
+.tag {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
+.tag-blue {
+  background-color: #E3F2FD;
+  color: #1976D2;
+}
+
+.tag-orange {
+  background-color: #FFF3E0;
+  color: #FF9800;
+}
+
+/* 加载动画 */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+}
+
+/* 空状态 */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 0;
+  color: #999999;
+}
+
+/* 错误状态 */
+.error {
+  color: #F44336;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+/* 成功状态 */
+.success {
+  color: #4CAF50;
+  font-size: 14px;
+  margin-top: 8px;
+}

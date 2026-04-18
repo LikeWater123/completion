@@ -1,0 +1,34 @@
+<view class="login-container">
+  <view class="logo">
+    <text class="logo-text">智慧学堂</text>
+    <text class="logo-subtext">AI辅助教学平台</text>
+  </view>
+  
+  <view class="login-form">
+    <!-- 微信授权登录按钮 -->
+    <button class="wechat-login-btn" bindtap="loginWithWechat">
+      <image class="wechat-icon" src="/images/wechat-icon.png"></image>
+      <text>微信授权登录</text>
+    </button>
+    
+    <!-- 角色选择 -->
+    <view class="role-selector" wx:if="{{showRoleSelector}}">
+      <text class="role-title">请选择您的角色</text>
+      <view class="role-cards">
+        <view class="role-card {{selectedRole === 'teacher' ? 'selected' : ''}}" bindtap="selectRole" data-role="teacher">
+          <text class="role-icon">👨‍🏫</text>
+          <text class="role-name">教师</text>
+          <text class="role-desc">发布作业、查看数据</text>
+        </view>
+        <view class="role-card {{selectedRole === 'student' ? 'selected' : ''}}" bindtap="selectRole" data-role="student">
+          <text class="role-icon">👨‍🎓</text>
+          <text class="role-name">学生</text>
+          <text class="role-desc">在线做题、AI学习方案</text>
+        </view>
+      </view>
+      <button class="confirm-btn" bindtap="confirmRole" disabled="{{!selectedRole}}">
+        确认选择
+      </button>
+    </view>
+  </view>
+</view>

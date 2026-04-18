@@ -1,0 +1,127 @@
+.home-container {
+  padding: 20px;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.header {
+  margin-bottom: 30px;
+}
+
+.welcome {
+  display: block;
+  font-size: 24px;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  display: block;
+  font-size: 16px;
+  color: #666666;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 16px;
+}
+
+.assignment-cards {
+  margin-bottom: 80px;
+}
+
+.assignment-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.assignment-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333333;
+  flex: 1;
+}
+
+.assignment-subject {
+  font-size: 12px;
+  padding: 4px 12px;
+  background-color: #E3F2FD;
+  color: #1976D2;
+  border-radius: 12px;
+}
+
+.card-body {
+  margin-bottom: 12px;
+}
+
+.assignment-info {
+  display: block;
+  font-size: 14px;
+  color: #666666;
+  margin-bottom: 4px;
+}
+
+.assignment-date {
+  display: block;
+  font-size: 12px;
+  color: #999999;
+}
+
+.card-footer {
+  text-align: right;
+}
+
+.view-btn {
+  font-size: 14px;
+  color: #1976D2;
+  font-weight: 500;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 0;
+  color: #999999;
+  font-size: 14px;
+  background-color: white;
+  border-radius: 8px;
+  margin-bottom: 80px;
+}
+
+.add-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  left: 20px;
+  background-color: #1976D2;
+  color: white;
+  border-radius: 8px;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3);
+}
+
+.add-icon {
+  font-size: 24px;
+  margin-right: 8px;
+  line-height: 1;
+}

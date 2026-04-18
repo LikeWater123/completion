@@ -1,0 +1,38 @@
+<view class="home-container">
+  <view class="header">
+    <text class="welcome">欢迎，{{userInfo?.nickName}}</text>
+    <text class="subtitle">作业管理</text>
+  </view>
+  
+  <view class="assignment-list">
+    <view class="section-title">
+      <text>已发布的作业</text>
+    </view>
+    
+    <view wx:if="{{assignments.length === 0}}" class="empty-state">
+      <text>暂无已发布的作业</text>
+    </view>
+    
+    <view wx:else class="assignment-cards">
+      <view wx:for="{{assignments}}" wx:key="_id" class="assignment-card">
+        <view class="card-header">
+          <text class="assignment-title">{{item.title}}</text>
+          <text class="assignment-subject">{{item.subject}}</text>
+        </view>
+        <view class="card-body">
+          <text class="assignment-info">题目数量：{{item.questions.length}}道</text>
+          <text class="assignment-date">发布时间：{{formatDate(item.createdAt)}}</text>
+        </view>
+        <view class="card-footer">
+          <text class="view-btn" bindtap="viewAssignment" data-id="{{item._id}}">查看详情</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 发布作业按钮 -->
+  <button class="add-btn" bindtap="navigateToCreate">
+    <text class="add-icon">+</text>
+    <text>发布作业</text>
+  </button>
+</view>
